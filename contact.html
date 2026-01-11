@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BNI AMIGOS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🤝 BNI AMIGOS</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with BNI AMIGOS</p>
+        <!-- Admin Icon -->
+        <div class="admin-icon" onclick="openAdminModal()" title="Admin">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about BNI AMIGOS? Want to visit a meeting? Fill out the form and we'll get back to you soon!</p>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Raipur, Chhattisgarh, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@bniamigos.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <h4>Meeting Time</h4>
+                            <p>Every Wednesday, 7:00 AM - 9:00 AM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <h2>Send us a Message</h2>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Aapka naam">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="aapka@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="9876543210" pattern="[0-9]{10}">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="Aapka city">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Aapka message..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" id="submitBtn">Send Message</button>
+                        
+                        <div class="form-message success" id="successMsg">
+                            ✅ Message sent successfully! We'll contact you soon.
+                        </div>
+                        
+                        <div class="form-message error" id="errorMsg">
+                            ❌ Something went wrong! Please try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Modal -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🔐 Admin Panel</h2>
+                <button class="close-btn" onclick="closeAdminModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Login Form -->
+                <div class="login-form" id="loginForm">
+                    <h3>Admin Login</h3>
+                    <div class="login-error" id="loginError">❌ Wrong password!</div>
+                    <input type="password" id="adminPassword" placeholder="Enter password">
+                    <button onclick="adminLogin()">Login</button>
+                </div>
+
+                <!-- Admin Panel -->
+                <div class="admin-panel" id="adminPanel">
+                    <div class="stats-bar">
+                        <div class="stat-box">
+                            <div class="stat-number" id="totalEntries">0</div>
+                            <div class="stat-label">Total Entries</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="todayEntries">0</div>
+                            <div class="stat-label">Today</div>
+                        </div>
+                    </div>
+
+                    <div class="admin-actions">
+                        <button class="admin-btn primary" onclick="refreshData()">🔄 Refresh</button>
+                        <button class="admin-btn success" onclick="downloadCSV()">📥 Download CSV</button>
+                        <button class="admin-btn danger" onclick="adminLogout()">🚪 Logout</button>
+                    </div>
+
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>Loading data...</p>
+                    </div>
+
+                    <div class="table-container" id="tableContainer">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>City</th>
+                                    <th>Message</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="no-data" id="noData">📭 No data yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🤝 BNI AMIGOS</h3>
+                    <p>Raipur's Premier Business Networking Chapter</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📍 Raipur, Chhattisgarh</p>
+                    <p>📧 info@bniamigos.com</p>
+                    <p>📞 +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BNI AMIGOS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Supabase Configuration
+        const CONFIG = {
+            SUPABASE_URL: 'https://zumeexbyluumxanrqhur.supabase.co',
+            SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1bWVleGJ5bHV1bXhhbnJxaHVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMDQzOTMsImV4cCI6MjA4MzY4MDM5M30.I7W4VF5EII_fRoT9Yl8nY5pugRVmBusSDJkhKwJ6ocY',
+            ADMIN_PASSWORD: 'admin123',
+            TABLE_NAME: 'registrations'
+        };
+
+        // Initialize Supabase
+        const supabaseClient = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
+
+        let allData = [];
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value || null,
+                message: document.getElementById('message').value || null
+            };
+
+            try {
+                const { error } = await supabaseClient
+                    .from(CONFIG.TABLE_NAME)
+                    .insert([formData]);
+
+                if (error) throw error;
+
+                successMsg.style.display = 'block';
+                this.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                errorMsg.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+
+        // Admin Functions
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.add('show');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.remove('show');
+        }
+
+        function adminLogin() {
+            const password = document.getElementById('adminPassword').value;
+            const loginError = document.getElementById('loginError');
+
+            if (password === CONFIG.ADMIN_PASSWORD) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('adminPanel').classList.add('show');
+                loginError.style.display = 'none';
+                refreshData();
+            } else {
+                loginError.style.display = 'block';
+            }
+        }
+
+        function adminLogout() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('adminPanel').classList.remove('show');
+            document.getElementById('adminPassword').value = '';
+        }
+
+        async function refreshData() {
+            const loading = document.getElementById('loading');
+            const tableContainer = document.getElementById('tableContainer');
+            const noData = document.getElementById('noData');
+
+            loading.style.display = 'block';
+            tableContainer.style.display = 'none';
+            noData.style.display = 'none';
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from(CONFIG.TABLE_NAME)
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (data && data.length > 0) {
+                    allData = data;
+                    renderTable(data);
+                    updateStats(data);
+                    tableContainer.style.display = 'block';
+                } else {
+                    noData.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                noData.textContent = '❌ Error loading data';
+                noData.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('dataTableBody');
+            tbody.innerHTML = '';
+
+            data.forEach((row, index) => {
+                const date = new Date(row.created_at).toLocaleString('en-IN', {
+                    timeZone: 'Asia/Kolkata',
+                    dateStyle: 'short',
+                    timeStyle: 'short'
+                });
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${date}</td>
+                    <td>${row.name || '-'}</td>
+                    <td>${row.email || '-'}</td>
+                    <td>${row.phone || '-'}</td>
+                    <td>${row.city || '-'}</td>
+                    <td>${row.message || '-'}</td>
+                    <td><button class="delete-btn" onclick="deleteRow(${row.id})">🗑️</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateStats(data) {
+            document.getElementById('totalEntries').textContent = data.length;
+            const today = new Date().toDateString();
+            const todayCount = data.filter(row => new Date(row.created_at).toDateString() === today).length;
+            document.getElementById('todayEntries').textContent = todayCount;
+        }
+
+        async function deleteRow(id) {
+            if (!confirm('Delete this entry?')) return;
+
+            try {
+                const { error } = await supabaseClient
+                    .from(CONFIG.TABLE_NAME)
+                    .delete()
+                    .eq('id', id);
+
+                if (error) throw error;
+                refreshData();
+            } catch (error) {
+                alert('Delete failed: ' + error.message);
+            }
+        }
+
+        function downloadCSV() {
+            if (allData.length === 0) {
+                alert('No data to download!');
+                return;
+            }
+
+            const headers = ['ID', 'Date', 'Name', 'Email', 'Phone', 'City', 'Message'];
+            let csv = headers.join(',') + '\n';
+
+            allData.forEach(row => {
+                const date = new Date(row.created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+                const csvRow = [row.id, date, row.name, row.email, row.phone, row.city, row.message]
+                    .map(cell => {
+                        const str = (cell || '').toString();
+                        return str.includes(',') ? `"${str}"` : str;
+                    });
+                csv += csvRow.join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'contacts_' + new Date().toISOString().split('T')[0] + '.csv';
+            link.click();
+        }
+
+        // Close modal on outside click
+        document.getElementById('adminModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAdminModal();
+        });
+
+        // Enter key for login
+        document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') adminLogin();
+        });
+    </script>
+</body>
+</html>
